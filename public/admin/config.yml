@@ -9,7 +9,7 @@ backend:
 media_folder: "public/upload"
 public_folder: "/"
 
-site_url: https://sailsnake-decapcms.netlify.app
+site_url: https://walleyemaster.com
 
 media_library:
   name: cloudinary
@@ -34,12 +34,31 @@ seo: &seo
 
 
 collections:
+  # BLOG POSTS
+  - name: "blog"
+    label: "Blog Posts"
+    folder: "content/blog"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { name: "title", label: "Title", widget: "string", required: true }
+      - { name: "description", label: "Description", widget: "text", required: true, hint: "Brief description for SEO and previews" }
+      - { name: "featuredImage", label: "Featured Image", widget: "image", required: false }
+      - { name: "publishedAt", label: "Published Date", widget: "datetime", required: true }
+      - { name: "author", label: "Author", widget: "string", default: "Walleye Master Team" }
+      - { name: "categories", label: "Categories", widget: "list", allow_add: true, collapsed: false, field: { label: "Category", name: "category", widget: "string" } }
+      - { name: "tags", label: "Tags", widget: "list", allow_add: true, collapsed: false, field: { label: "Tag", name: "tag", widget: "string" } }
+      - { name: "readingTime", label: "Reading Time (minutes)", widget: "number", value_type: "int", min: 1, max: 60, required: false }
+      - { name: "draft", label: "Draft", widget: "boolean", default: false }
+      - { name: "body", label: "Content", widget: "markdown", required: true }
+      - *seo
+
   - name: "globalContent"
     label: "global content"
     files: 
       - label: "buttons"
         name: "buttons"
-        file: "content/site/buttons.md"    
+        file: "content/components/buttons.md"    
         fields: 
           - label: "next"
             name: "next"
@@ -75,15 +94,5 @@ collections:
         fields:
           - { name: "title", label: "Title", widget: "string" }
           - { name: "content", label: "Content", widget: "markdown" }
-      - name: "Fiddly diddlies"
-        label: "diddlies"
-        extension: json
-        file: "content/pages/fiddly-diddlies.json"
-        fields:
-          - { name: "title", label: "Title", widget: "string" }
-          - { name: "test-fields", label: "field objects test", widget: "string", default: "fields.title" }
-          - { name: "content", label: "Content", widget: "markdown" }
-     
 
-          
 

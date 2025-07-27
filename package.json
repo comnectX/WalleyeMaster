@@ -17,6 +17,10 @@
     "webpack": "^5.84.0"
   },
   "dependencies": {
-    "@nuxtjs/cloudinary": "^2.3.4"
+    "@headlessui/vue": "^1.7.23",
+    "@heroicons/vue": "^2.2.0",
+    "@nuxtjs/cloudinary": "^2.3.4",
+    "@nuxtjs/tailwindcss": "^6.14.0",
+    "@tailwindcss/typography": "^0.5.16"
   }
 }

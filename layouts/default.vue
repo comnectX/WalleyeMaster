@@ -1,22 +1,28 @@
 <template>
-	<div class="layout-wrapper" :class="{'--firstVisitAnimation': firstVisit }">
-		<LayoutHeader />
-		<div class="page-wrapper default">
-			<slot />
-		</div>
-		<LayoutFooter />
-	</div>
+  <div class="min-h-screen bg-gray-50">
+    <AppHeader />
+    <main class="flex-1">
+      <slot />
+    </main>
+    <AppFooter />
+  </div>
 </template>
 
 <script setup>
+// Global SEO defaults
+const config = useRuntimeConfig()
 
-const route = useRoute();
-// initiallize 'firstVisit' state => changed via watch 
-const firstVisit = useState("firstVisit", () => route.path === '/' ? true : false);
-
-watch( () => route.fullPath,
-	() => {
-		firstVisit.value = false
-	}
-)
+useHead({
+  titleTemplate: (title) => title ? `${title} | ${config.public.siteName}` : config.public.siteName,
+  meta: [
+    { name: 'description', content: config.public.siteDescription },
+    { property: 'og:site_name', content: config.public.siteName },
+    { property: 'og:type', content: 'website' },
+    { name: 'twitter:card', content: 'summary_large_image' },
+    { name: 'twitter:site', content: '@walleyemaster' },
+  ],
+  link: [
+    { rel: 'canonical', href: config.public.siteUrl }
+  ]
+})
 </script>
