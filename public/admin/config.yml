@@ -51,7 +51,7 @@ collections:
       - { name: "tags", label: "Tags", widget: "list", allow_add: true, collapsed: false, field: { label: "Tag", name: "tag", widget: "string" } }
       - { name: "readingTime", label: "Reading Time (minutes)", widget: "number", value_type: "int", min: 1, max: 60, required: false }
       - { name: "draft", label: "Draft", widget: "boolean", default: false }
-      - { name: "content", label: "Content", widget: "markdown", required: true }
+      - { name: "body", label: "Content", widget: "markdown", required: true }
       - *seo
 
   - name: "globalContent"
