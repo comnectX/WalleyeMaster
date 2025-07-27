@@ -196,29 +196,6 @@ useHead({
   ]
 })
 
-// Structured data for SEO
-useJsonld({
-  '@context': 'https://schema.org',
-  '@type': 'Article',
-  headline: post.value.title,
-  description: post.value.description || post.value.excerpt,
-  image: post.value.featuredImage,
-  datePublished: post.value.publishedAt || post.value.createdAt,
-  dateModified: post.value.updatedAt || post.value.publishedAt || post.value.createdAt,
-  author: {
-    '@type': 'Person',
-    name: post.value.author || 'Walleye Master'
-  },
-  publisher: {
-    '@type': 'Organization',
-    name: 'Walleye Master',
-    logo: {
-      '@type': 'ImageObject',
-      url: `${config.public.siteUrl}/logo.png`
-    }
-  }
-})
-
 const formatDate = (dateString) => {
   if (!dateString) return ''
   const date = new Date(dateString)
