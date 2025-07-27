@@ -10,7 +10,6 @@ export default defineNuxtConfig({
 			title: "Walleye Master - Your Ultimate Walleye Fishing Resource",
 		},
 	},
-	modules: ["@nuxt/content", "@nuxtjs/tailwindcss"],
 	modules: ["@nuxt/content", "@nuxtjs/tailwindcss", "@nuxtjs/seo"],
 	content: {
 		markdown: {
