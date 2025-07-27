@@ -145,8 +145,10 @@ const route = useRoute()
 const config = useRuntimeConfig()
 
 // Fetch the blog post
-const { data: post } = await useAsyncData(`blog-${route.params.slug}`, () => 
-  queryContent('/blog', route.params.slug.join('/')).findOne()
+const { data: post } = await useAsyncData(`blog-${route.params.slug}`, () => {
+  const slug = Array.isArray(route.params.slug) ? route.params.slug.join('/') : route.params.slug
+  return queryContent('/blog').where({ _path: `/blog/${slug}` }).findOne()
+}
 )
 
 // Handle 404
