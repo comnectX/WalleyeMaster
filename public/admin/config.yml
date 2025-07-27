@@ -1,5 +1,5 @@
 # disable in production:  
-local_backend: true
+# local_backend: true
 # command to run a local Decap instance: npx-decap-server
 
 backend:
@@ -39,7 +39,8 @@ collections:
     label: "Blog Posts"
     folder: "content/blog"
     create: true
-    slug: "{{slug}}"
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    format: "frontmatter"
     fields:
       - { name: "title", label: "Title", widget: "string", required: true }
       - { name: "description", label: "Description", widget: "text", required: true, hint: "Brief description for SEO and previews" }
@@ -50,7 +51,7 @@ collections:
       - { name: "tags", label: "Tags", widget: "list", allow_add: true, collapsed: false, field: { label: "Tag", name: "tag", widget: "string" } }
       - { name: "readingTime", label: "Reading Time (minutes)", widget: "number", value_type: "int", min: 1, max: 60, required: false }
       - { name: "draft", label: "Draft", widget: "boolean", default: false }
-      - { name: "body", label: "Content", widget: "markdown", required: true }
+      - { name: "content", label: "Content", widget: "markdown", required: true }
       - *seo
 
   - name: "globalContent"

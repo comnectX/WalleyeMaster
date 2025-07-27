@@ -66,7 +66,7 @@
 
       <!-- Article Content -->
       <div class="prose prose-lg max-w-none">
-        <ContentRenderer :value="post" />
+        <div v-html="post.content"></div>
       </div>
 
       <!-- Tags -->
