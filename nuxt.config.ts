@@ -11,6 +11,7 @@ export default defineNuxtConfig({
 		},
 	},
 	modules: ["@nuxt/content", "@nuxtjs/tailwindcss"],
+	modules: ["@nuxt/content", "@nuxtjs/tailwindcss", "@nuxtjs/seo"],
 	content: {
 		markdown: {
 			anchorLinks: false,
