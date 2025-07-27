@@ -4,10 +4,10 @@
 
 backend:
   name: git-gateway
-  branch: master # Branch to update (optional; defaults to master)
+  branch: main # Branch to update (optional; defaults to main)
 
 media_folder: "public/upload"
-public_folder: "/"
+public_folder: "/upload"
 
 site_url: https://walleyemaster.com
 
